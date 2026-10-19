@@ -2,7 +2,7 @@
  * Estrategia: precache del núcleo + cache-first con actualización en segundo plano.
  * Sube el número de versión cuando cambies archivos para forzar la actualización.
  */
-var CACHE = "flashcard-v3";
+var CACHE = "flashcard-v4";
 var CORE = [
   "./",
   "./index.html",

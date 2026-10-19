@@ -12,14 +12,37 @@
       "cards": [
         {
           "id": "c1",
-          "front": "¿Pregunta 1? (admite **negrita**, *cursiva*, `código` y listas con - )",
-          "back": "Respuesta 1.",
+          "front": "Tarjeta TRADICIONAL: ¿pregunta? (admite **negrita**, *cursiva*, `código` y listas con - )",
+          "back": "Respuesta.",
           "tags": ["etiqueta-opcional"]
         },
         {
           "id": "c2",
-          "front": "¿Pregunta 2?",
-          "back": "Respuesta 2."
+          "type": "mcq",
+          "question": "Opción múltiple con UNA sola respuesta correcta: ¿cuál es?",
+          "options": ["Opción A", "Opción B (correcta)", "Opción C", "Opción D"],
+          "correct": [1],
+          "multi": false,
+          "explanation": "Texto opcional que se muestra tras responder.",
+          "tags": ["test"]
+        },
+        {
+          "id": "c3",
+          "type": "mcq",
+          "question": "Opción múltiple con VARIAS respuestas correctas: ¿cuáles aplican?",
+          "options": ["Correcta 1", "Incorrecta", "Correcta 2", "Correcta 3"],
+          "correct": [0, 2, 3],
+          "multi": true,
+          "explanation": "Hay que marcar TODAS las correctas para acertar."
+        },
+        {
+          "id": "c4",
+          "type": "mcq",
+          "question": "Pregunta CON IMAGEN: ¿qué se ve?",
+          "image": "https://ejemplo.com/imagen.png",
+          "options": ["A", "B", "C"],
+          "correct": [0],
+          "multi": false
         }
       ]
     }

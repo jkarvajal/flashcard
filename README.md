@@ -65,7 +65,19 @@ Luego abre **http://localhost:8000**. Desde el icono de la barra de direcciones 
 
 ---
 
-## ➕ Cómo añadir tus propias materias
+## 🧩 Tipos de tarjeta
+
+- **Tradicional** (anverso/reverso): ves la pregunta, la volteas y te autoevalúas.
+- **Opción múltiple (MCQ)**: eliges entre varias opciones.
+  - **Una sola respuesta correcta** (`multi: false`) o **varias respuestas correctas** (`multi: true`, hay que marcarlas todas para acertar).
+  - Admite **imagen** en la pregunta.
+  - La app corrige sola (verde/rojo) y lo integra en el calendario FSRS; en el modo autoevaluación se puntúa automáticamente.
+
+## ✏️ Crear mazos desde la app
+
+Pulsa **"✏️ Crear mazo"** en el inicio: pones materia y título, eliges **Tradicional** u **Opción múltiple**, y vas añadiendo tarjetas (en las MCQ marcas con ✓ las correctas y puedes adjuntar una imagen). Se guarda en tu dispositivo. También puedes importar un `.json` (ver formato de los tres tipos en `data/PLANTILLA-materia.json`).
+
+## ➕ Cómo añadir tus propias materias (avanzado)
 
 Tienes **dos formas**:
 
