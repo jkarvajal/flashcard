@@ -224,6 +224,16 @@
     return { nueva: nueva, pend: pend, due: nueva + pend, total: total, aprendidas: aprendidas };
   }
 
+  // Resumen de una materia (suma de sus mazos).
+  function subjectStats(subject) {
+    var decks = subject.decks.length, total = 0, due = 0, aprendidas = 0;
+    subject.decks.forEach(function (d) {
+      var st = deckStats(subject, d);
+      total += st.total; due += st.due; aprendidas += st.aprendidas;
+    });
+    return { decks: decks, total: total, due: due, aprendidas: aprendidas };
+  }
+
   // Construye la cola de estudio de un mazo (vencidas + nuevas, con límites)
   function buildQueue(subject, deck, mode) {
     var t = now();
@@ -367,48 +377,26 @@
       subjectsWrap.appendChild(emptyState("No hay materias todavía.", "Importa un mazo en formato JSON para empezar."));
     }
 
+    // Una tarjeta por materia (grupo); al entrar se ven sus mazos.
     SUBJECTS.forEach(function (subject) {
-      var section = document.createElement("section");
-      section.className = "subject-block";
-      var head = document.createElement("div");
-      head.className = "subject-head";
-      var tc = countTest(subject);
-      head.innerHTML =
+      var ss = subjectStats(subject);
+      var card = document.createElement("button");
+      card.className = "subject-card";
+      card.innerHTML =
         '<span class="subject-icon" style="background:' + (subject.color || "#0aa2d6") + '22;color:' +
         (subject.color || "#0aa2d6") + '">' + (subject.icon || "📚") + '</span>' +
-        '<div class="subject-head-text"><div class="subject-name">' + esc(subject.name) + '</div>' +
-        '<div class="subject-desc">' + esc(subject.description || "") + '</div></div>' +
-        (tc > 0 ? '<button class="btn btn-ghost btn-small subject-exam">🎯 Test (' + tc + ')</button>' : '');
-      if (tc > 0) {
-        head.querySelector(".subject-exam").addEventListener("click", function () {
-          startExam(subject, null, "Test · " + subject.name);
-        });
-      }
-      section.appendChild(head);
-
-      subject.decks.forEach(function (deck) {
-        var st = deckStats(subject, deck);
-        var pct = st.total ? Math.round((st.aprendidas / st.total) * 100) : 0;
-        var card = document.createElement("button");
-        card.className = "deck-card";
-        card.innerHTML =
-          '<div class="deck-main">' +
-            '<div class="deck-title">' + esc(deck.title) + '</div>' +
-            '<div class="deck-desc">' + esc(deck.description || "") + '</div>' +
-            '<div class="progress"><div class="progress-bar" style="width:' + pct + '%;background:' + (subject.color || "#0aa2d6") + '"></div></div>' +
-            '<div class="deck-meta">' +
-              '<span class="chip chip-total">' + st.total + ' tarjetas</span>' +
-              (st.due > 0 ? '<span class="chip chip-due">' + st.due + ' por estudiar</span>' : '<span class="chip chip-done">al día ✓</span>') +
-              '<span class="chip">' + pct + '% aprendido</span>' +
-            '</div>' +
+        '<div class="subject-main">' +
+          '<div class="subject-name">' + esc(subject.name) + '</div>' +
+          '<div class="subject-desc">' + esc(subject.description || "") + '</div>' +
+          '<div class="deck-meta">' +
+            '<span class="chip">' + ss.decks + (ss.decks === 1 ? " mazo" : " mazos") + '</span>' +
+            '<span class="chip chip-total">' + ss.total + ' tarjetas</span>' +
+            (ss.due > 0 ? '<span class="chip chip-due">' + ss.due + ' por estudiar</span>' : '<span class="chip chip-done">al día ✓</span>') +
           '</div>' +
-          '<span class="deck-go">›</span>';
-        card.addEventListener("click", function () {
-          go(function (v) { renderDeck(v, subject, deck); }, deck.title);
-        });
-        section.appendChild(card);
-      });
-      subjectsWrap.appendChild(section);
+        '</div>' +
+        '<span class="deck-go">›</span>';
+      card.addEventListener("click", function () { go(function (v) { renderSubject(v, subject); }, subject.name); });
+      subjectsWrap.appendChild(card);
     });
 
     el("importBtn") && el("importBtn").addEventListener("click", importDeck);
@@ -431,6 +419,59 @@
     }
     input.addEventListener("input", doSearch);
     clearBtn.addEventListener("click", function () { input.value = ""; input.focus(); doSearch(); });
+  }
+
+  // Botón-tarjeta de un mazo (reutilizado en la vista de materia).
+  function deckCardEl(subject, deck) {
+    var st = deckStats(subject, deck);
+    var pct = st.total ? Math.round((st.aprendidas / st.total) * 100) : 0;
+    var card = document.createElement("button");
+    card.className = "deck-card";
+    card.innerHTML =
+      '<div class="deck-main">' +
+        '<div class="deck-title">' + esc(deck.title) + '</div>' +
+        '<div class="deck-desc">' + esc(deck.description || "") + '</div>' +
+        '<div class="progress"><div class="progress-bar" style="width:' + pct + '%;background:' + (subject.color || "#0aa2d6") + '"></div></div>' +
+        '<div class="deck-meta">' +
+          '<span class="chip chip-total">' + st.total + ' tarjetas</span>' +
+          (st.due > 0 ? '<span class="chip chip-due">' + st.due + ' por estudiar</span>' : '<span class="chip chip-done">al día ✓</span>') +
+          '<span class="chip">' + pct + '% aprendido</span>' +
+        '</div>' +
+      '</div>' +
+      '<span class="deck-go">›</span>';
+    card.addEventListener("click", function () { go(function (v) { renderDeck(v, subject, deck); }, deck.title); });
+    return card;
+  }
+
+  // Vista de una materia: su cabecera, acciones y la lista de todos sus mazos.
+  function renderSubject(view, subject) {
+    var tc = countTest(subject);
+    var head = document.createElement("div");
+    head.className = "subject-head subject-page-head";
+    head.innerHTML =
+      '<span class="subject-icon" style="background:' + (subject.color || "#0aa2d6") + '22;color:' +
+      (subject.color || "#0aa2d6") + '">' + (subject.icon || "📚") + '</span>' +
+      '<div class="subject-head-text"><div class="subject-name">' + esc(subject.name) + '</div>' +
+      '<div class="subject-desc">' + esc(subject.description || "") + '</div></div>';
+    view.appendChild(head);
+
+    var actions = document.createElement("div");
+    actions.className = "row-actions";
+    actions.innerHTML =
+      '<button class="btn btn-ghost btn-small" id="subjNew">✏️ Nuevo mazo</button>' +
+      (tc > 0 ? '<button class="btn btn-exam btn-small" id="subjExam">🎯 Autoevaluación (' + tc + ')</button>' : "");
+    view.appendChild(actions);
+
+    if (!subject.decks.length) {
+      view.appendChild(emptyState("Esta materia no tiene mazos.", "Crea uno con “Nuevo mazo”."));
+    }
+    subject.decks.forEach(function (deck) { view.appendChild(deckCardEl(subject, deck)); });
+
+    el("subjNew").addEventListener("click", function () {
+      CREATE_DRAFT = newDraft(); CREATE_DRAFT.subjectName = subject.name;
+      go(renderCreate, "Crear mazo");
+    });
+    if (tc > 0) el("subjExam").addEventListener("click", function () { startExam(subject, null, "Test · " + subject.name); });
   }
 
   // Renderiza los resultados de búsqueda en el contenedor dado.
