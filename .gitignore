@@ -1,0 +1,6 @@
+# Config local de desarrollo (rutas absolutas de la máquina)
+.claude/
+# Basura del SO
+Thumbs.db
+desktop.ini
+.DS_Store

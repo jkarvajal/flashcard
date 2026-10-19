@@ -1,0 +1,27 @@
+{
+  "id": "mi-materia",
+  "name": "Nombre de la materia",
+  "description": "Descripción corta de la asignatura",
+  "color": "#7048e8",
+  "icon": "📘",
+  "decks": [
+    {
+      "id": "tema-1",
+      "title": "Tema 1 · Título del tema",
+      "description": "De qué trata este mazo",
+      "cards": [
+        {
+          "id": "c1",
+          "front": "¿Pregunta 1? (admite **negrita**, *cursiva*, `código` y listas con - )",
+          "back": "Respuesta 1.",
+          "tags": ["etiqueta-opcional"]
+        },
+        {
+          "id": "c2",
+          "front": "¿Pregunta 2?",
+          "back": "Respuesta 2."
+        }
+      ]
+    }
+  ]
+}
