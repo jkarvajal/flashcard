@@ -114,6 +114,97 @@
 9. La transformada inversa de Fourier: A · **B. Devuelve f(t) original sin modificación ✅** · C
 10. ¿TF a funciones sinusoidales? A. Falso · **B. Verdadero (son periódicas y continuas) ✅**
 
+## Tema 9 — Morfología matemática
+
+1. Función principal de las operaciones morfológicas: A · B · C · **D. Todas las anteriores ✅** · E
+2. ¿Los elementos estructurales pueden ser de cualquier forma? A · **B. Sí ✅**
+3. La morfología puede aplicarse a: A · B · C · D · **E. Todas las anteriores (binarias, grises, color, señales 1D) ✅**
+4. ¿La erosión es la inversa de la dilatación? **A. Teóricamente falso, aunque puede haber casos ✅** · B · C
+5. La apertura: **A. Primero erosión y después dilatación ✅** · B · C · D
+6. La función inversa de la erosión: A · B · C · **D. Ninguna de las anteriores ✅**
+7. Matriz 17×17 negra con el centro blanco, dilatación: **A. Dependerá del elemento estructural ✅** · B · C
+8. Cielo nocturno, quedarse con las estrellas grandes: A · **B. Una apertura ✅** · C
+9. Operadores que conservan la forma: A · B · C · **D. La apertura y la clausura ✅**
+10. ¿Qué operador consume más procesamiento? A · B · **C. La apertura ✅**
+
+## Tema 10 — Crecimiento de regiones
+
+1. El crecimiento de regiones es un proceso: A · B · **C. Semisupervisado (depende de inicialización y parametrización) ✅**
+2. ¿Más costoso que k-means por color? **A. Verdadero ✅** · B
+3. El uso de semillas es: A · **B. Un método sencillo de inicialización ✅** · C
+4. GVF en 3D siempre que: A · **B. Se defina una función de energía que considere 3 dimensiones ✅** · C
+5. Mejora de GVF frente a ACM: **A. Son más robustos a la inicialización ✅** · B · C
+6. Sobresegmentación de Watershed se elimina: **A. Procesado posterior eliminando líneas Watershed menos importantes ✅** · B · C
+7. Imagen 32×32 toda blanca, ¿cuántos split? A · **B. Ninguna, todos los píxeles son iguales ✅** · C
+8. Tablero de ajedrez 8×8, ¿segmentos? A · B · **C. 64 segmentos, independiente de la función de similitud ✅**
+9. Agregación multiescala, ¿qué consume más tiempo? A · B · **C. La primera escala (más nodos) ✅** · D
+10. Algoritmo interactivo con experto humano: A · **B. Graph-cuts y crecimiento por semillas ✅** · C · D
+
+## Tema 11 — Extracción de características (estadística y frecuencia)
+
+1. Propósito de la extracción de características: A · B · C · **D. Sintetizar la información para una etapa de reconocimiento de patrones ✅**
+2. Dominios de caracterización: **A. Dominio natural (tiempo/espacio) y frecuencia ✅** · B · C · D
+3. La caracterización estadística parcial calcula: A · B · **C. Media, moda, varianza, mediana y otros derivados de la fdp ✅** · D
+4. ¿Media de una señal no estacionaria? A · B · **C. No: la media sería función del tiempo, no un descriptor global preciso ✅** · D
+5. Varianza nula → entropía: **A. 0 ✅** · B · C · D
+6. Si A tiene mayor rango intercuartil que B: **A. Los valores de A tienen mayor dispersión ✅** · B · C · D
+7. Cuantificar cómo de predecible es una señal: A · B · C · **D. La complejidad de Lempel-Ziv ✅**
+8. La densidad espectral de potencia: A · B · **C. Refleja la potencia por unidad de frecuencia ✅** · D
+9. El ancho de banda se define como: A · B · **C. La diferencia entre las componentes frecuenciales máxima y mínima ✅** · D
+10. ¿Un mayor ancho de banda? A · **B. Mayor disparidad entre sus componentes frecuenciales ✅** · C · D
+
+## Tema 12 — Caracterización de textura
+
+1. ¿Cómo se define la textura? A · **B. No existe una definición acotada ✅** · C · D
+2. Matriz de Haralick: A · B · **C. 8 niveles y 4 matrices (una por dirección) ✅** · D
+3. Interpretación del elemento (i,j): **A. Prob. de que i sea adyacente a j según dirección/distancia ✅** · B · C · D
+4. Uso de la matriz de Haralick en clasificación: A · **B. Se derivan estadísticos como descriptores ✅** · C · D
+5. Parámetros P y R en LBP: A · B · **C. P = nº de vecinos en un radio R ✅** · D
+6. ¿El LBP original es invariante a rotación? **A. No ✅** · B · C · D
+7. ¿Cómo se obtiene el LBPriu2? A · **B. Rotando circularmente el patrón hasta el valor mínimo ✅** · C · D
+8. Propiedad de las transformadas unitarias para textura: A · B · **C. Base sinusoidal → al proyectar se muestrea la imagen ✅** · D
+9. Afirmación correcta: A · B · C · **D. Relación entre el orden del polinomio de Tchebichef y la frecuencia, explotable para la textura ✅**
+10. Firma de textura (Tchebichef): A · **B. Suma del módulo de los coeficientes de orden s (función de s) ✅** · C · D
+
+## Tema 13 — Procesamiento multiescala (Wavelets, Gabor, SIFT)
+
+1. Algoritmo para características invariantes a rotación: A · B · C · **D. Todas las anteriores ✅**
+2. Limitación de Fourier que cubre la STFT: A · **B. Fourier no indica en qué momento se produce una frecuencia ✅** · C
+3. Más adecuado para reconocer texturas: **A. Los filtros de Gabor ✅** · B · C · D
+4. Ventajas de SIFT: **A. Invariante a escala, rotación e intensidad ✅** · B · C
+5. SIFT significa: **A. Scale Invariant Feature Transform ✅** · B · C
+6. ¿Cuándo usar un filtro de Gabor? A · B · C · **D. Todas las anteriores ✅**
+7. ¿Cuándo usar Wavelets? A · **B. Detectar un cambio de frecuencias en un momento del tiempo ✅** · C
+8. ¿Cuándo usar SIFT? A · **B. Detección de señales de tráfico en conducción automática ✅** · C
+9. Principal desventaja de la STFT: **A. Ventana temporal constante ✅** · B · C
+10. Orden cronológico: **A. Primero Gabor, luego Wavelets y por último SIFT ✅** · B · C
+
+## Tema 14 — Decisión y reconocimiento de patrones
+
+1. ¿Dónde está la etapa de decisión? A · **B. Última etapa del proceso ✅** · C · D
+2. ¿Por qué incluir decisión automática? **A. Asignar la señal a una categoría, automatizando la interpretación ✅** · B · C · D
+3. Regla que minimiza el coste del error: A · B · C · **D. Regla de decisión de Bayes ✅**
+4. ¿Qué es un conjunto de entrenamiento? A · B · C · **D. Todas las respuestas son correctas ✅**
+5. ¿Qué función caracteriza por completo al generador? A · B · **C. La densidad de probabilidad conjunta de x y t ✅** · D
+6. ¿Qué función debe modelar el sistema de decisión? A · B · C · **D. La densidad de t condicionada a x ✅**
+7. El teorema de Bayes: **A. Obtiene p(categoría|x) a partir de verosimilitud, priori y evidencia ✅** · B · C · D
+8. En el entrenamiento: A · **B. Se ajustan los parámetros para aproximar p(t|x) ✅** · C · D
+9. Componentes del error: A · B · **C. Sesgo y varianza, componentes complementarias ✅** · D
+10. ¿Cuándo es más probable el overfitting? A · B · **C. Si la varianza del modelo es elevada ✅** · D
+
+## Tema 15 — Aplicaciones (biometría y coche autónomo)
+
+1. ¿Self-driving sin segmentación? **A. Falso ✅** · B
+2. ¿Análisis en la nube? A · B · **C. Falso: debe hacerse en el coche para tiempos de respuesta bajos ✅**
+3. Limitaciones de los sistemas autónomos: A · B · C · **D. Todas las anteriores ✅** · E
+4. Ventaja de conducción + biometría: A · B · C · **D. Todas las anteriores ✅**
+5. ¿La biometría estudia patrones físicos o de comportamiento? A · **B. Verdadero ✅**
+6. ¿La huella precisa segmentación compleja? **A. Falso ✅** · B
+7. ¿El iris necesita segmentación por color para la pupila? **A. Si es solo la pupila, el color puede ser buen enfoque ✅** · B · C
+8. ¿Qué técnica sirve como reconocimiento biométrico? A · B · C · **D. Todas (forma de caminar, tecleo, oreja) ✅**
+9. Mayor limitación de la percepción computacional: **A. Falta de generalización (sistemas muy especializados) ✅** · B · C · D
+10. Si no distingue dos clases, ¿solución óptima? A · **B. Cambiar la extracción de características (p. ej. de formas a texturas) ✅** · C · D
+
 ---
 
-*Pendientes:* tests de los Temas 9-15 (cuando se compartan). Los tests oficiales de los Temas 8-15 ya están en el mazo "Tests oficiales (opción múltiple)" de la app.
+*Cobertura completa: Temas 1-15.* Los tests de los Temas 8-15 están además en el mazo **"Tests oficiales (opción múltiple)"** de la app, y los Temas 1-7 en **"Tests preparatorios UNIR"**.
