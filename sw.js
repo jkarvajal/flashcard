@@ -2,7 +2,7 @@
  * Estrategia: precache del núcleo + cache-first con actualización en segundo plano.
  * Sube el número de versión cuando cambies archivos para forzar la actualización.
  */
-var CACHE = "flashcard-v12";
+var CACHE = "flashcard-v13";
 var CORE = [
   "./",
   "./index.html",
@@ -11,7 +11,11 @@ var CORE = [
   "./data/vision-artificial.js",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icons/icon-512.png",
+  "./img/espectro-visible.svg",
+  "./img/muestreo.svg",
+  "./img/mascara-bordes.svg",
+  "./img/morfologia.svg"
 ];
 
 self.addEventListener("install", function (e) {

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 150" font-family="system-ui,Arial,sans-serif">
+<rect width="420" height="150" fill="#ffffff"/>
+<defs><linearGradient id="s" x1="0" x2="1">
+<stop offset="0" stop-color="#7a00ff"/><stop offset=".16" stop-color="#4b0082"/>
+<stop offset=".33" stop-color="#0030ff"/><stop offset=".5" stop-color="#00c000"/>
+<stop offset=".66" stop-color="#ffe000"/><stop offset=".83" stop-color="#ff7a00"/>
+<stop offset="1" stop-color="#ff0000"/></linearGradient></defs>
+<text x="210" y="26" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a2027">Espectro visible</text>
+<rect x="62" y="46" width="296" height="48" rx="5" fill="url(#s)" stroke="#333"/>
+<text x="62" y="112" text-anchor="middle" font-size="13" fill="#1a2027">400 nm</text>
+<text x="358" y="112" text-anchor="middle" font-size="13" fill="#1a2027">700 nm</text>
+<text x="30" y="74" text-anchor="middle" font-size="11" fill="#666">UV</text>
+<text x="392" y="74" text-anchor="middle" font-size="11" fill="#666">IR</text>
+<text x="210" y="134" text-anchor="middle" font-size="12" fill="#555">menor longitud de onda  &#8592;   &#8594;  mayor</text>
+</svg>
