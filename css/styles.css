@@ -55,8 +55,10 @@ body {
   font-size: 16px;
   line-height: 1.5;
   overscroll-behavior-y: none;
+  -webkit-text-size-adjust: 100%;   /* evita que el movil reescale el texto */
 }
-#app { display: flex; flex-direction: column; height: 100%; max-width: 780px; margin: 0 auto; }
+/* Altura dinamica: se auto-ajusta cuando el navegador movil muestra/oculta su barra */
+#app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; max-width: 780px; margin: 0 auto; }
 
 /* Barra superior */
 .topbar {
@@ -206,7 +208,7 @@ body {
 .card-img { display: block; max-width: 100%; max-height: 260px; margin: 0 auto 14px; border-radius: 10px; border: 1px solid var(--border); }
 
 /* Opción múltiple (MCQ) */
-.mcq-card { cursor: default; align-items: stretch; }
+.mcq-card { cursor: default; align-items: stretch; justify-content: flex-start; }
 .mcq-q { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
 .mcq-hint { font-size: 12px; color: var(--text-soft); margin-bottom: 14px; }
 .mcq-options { display: flex; flex-direction: column; gap: 9px; }
@@ -308,7 +310,61 @@ body {
 .install-bar .btn { background: #fff; color: var(--brand-dark); }
 .install-bar .icon-btn { color: #fff; width: 32px; height: 32px; font-size: 20px; }
 
-/* Escritorio */
+/* ── Filtro de mazos ─────────────────────────────────────── */
+.deck-filter-wrap { position: relative; margin-bottom: 12px; }
+.deck-filter-input {
+  width: 100%; font: inherit; font-size: 15px;
+  padding: 11px 36px 11px 38px;
+  border-radius: 11px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text);
+}
+.deck-filter-input:focus {
+  outline: none; border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 20%, transparent);
+}
+.deck-filter-icon {
+  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+  font-size: 16px; pointer-events: none; color: var(--text-soft);
+}
+.deck-filter-clear {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  width: 30px; height: 30px; border: none; background: transparent;
+  color: var(--text-soft); font-size: 22px; line-height: 1; cursor: pointer;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+.deck-filter-clear:hover { background: var(--surface-2); }
+.deck-filter-count { font-size: 12px; color: var(--text-soft); margin: 0 2px 8px; }
+.deck-item-hidden { display: none !important; }
+
+/* ── Mejoras móvil ───────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Tarjeta de flash más compacta */
+  .flashcard { min-height: 200px; padding: 20px 16px; }
+  .flash-content { font-size: 17px; }
+  .mcq-q { font-size: 17px; }
+
+  /* Opciones MCQ más grandes para tocar */
+  .mcq-opt { padding: 15px 13px; font-size: 15px; }
+  .mcq-opt .mcq-box { width: 22px; height: 22px; flex: 0 0 22px; }
+
+  /* Botones de repaso más altos */
+  .rate-bar { gap: 6px; margin-top: 10px; }
+  .rate-btn { padding: 14px 4px; border-radius: 12px; }
+  .rate-label { font-size: 14px; }
+  .rate-int { font-size: 11.5px; }
+
+  /* Barra superior más compacta */
+  .topbar { padding: 10px 12px; padding-top: calc(10px + env(safe-area-inset-top, 0px)); }
+  .topbar-title { font-size: 16px; }
+
+  /* Vista con más espacio inferior para los botones */
+  .view { padding-bottom: calc(32px + var(--safe-b)); }
+
+  /* Estadísticas en 2 columnas en la vista de mazo */
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Escritorio ──────────────────────────────────────────── */
 @media (min-width: 640px) {
   .deck-buttons { flex-direction: row; }
   .deck-buttons .btn { flex: 1; }

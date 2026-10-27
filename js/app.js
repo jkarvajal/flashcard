@@ -462,10 +462,64 @@
       (tc > 0 ? '<button class="btn btn-exam btn-small" id="subjExam">🎯 Autoevaluación (' + tc + ')</button>' : "");
     view.appendChild(actions);
 
-    if (!subject.decks.length) {
-      view.appendChild(emptyState("Esta materia no tiene mazos.", "Crea uno con “Nuevo mazo”."));
+    // Campo de busqueda / filtro de mazos (solo si hay varios)
+    if (subject.decks.length > 4) {
+      var filterWrap = document.createElement("div");
+      filterWrap.className = "deck-filter-wrap";
+      filterWrap.innerHTML =
+        '<span class="deck-filter-icon">🔍</span>' +
+        '<input id="deckFilterInput" class="deck-filter-input" type="search" autocomplete="off" ' +
+        'placeholder="Buscar mazo por nombre…" aria-label="Buscar mazo">' +
+        '<button id="deckFilterClear" class="deck-filter-clear hidden" aria-label="Limpiar">×</button>';
+      view.appendChild(filterWrap);
+
+      var filterCount = document.createElement("div");
+      filterCount.className = "deck-filter-count hidden";
+      filterCount.id = "deckFilterCount";
+      view.appendChild(filterCount);
     }
-    subject.decks.forEach(function (deck) { view.appendChild(deckCardEl(subject, deck)); });
+
+    if (!subject.decks.length) {
+      view.appendChild(emptyState("Esta materia no tiene mazos.", "Crea uno con Nuevo mazo."));
+    }
+
+    var deckEls = [];
+    subject.decks.forEach(function (deck) {
+      var card = deckCardEl(subject, deck);
+      card.setAttribute("data-deck-title", norm(deck.title));
+      deckEls.push(card);
+      view.appendChild(card);
+    });
+
+    var filterInput = el("deckFilterInput");
+    var filterClear = el("deckFilterClear");
+    function applyFilter(q) {
+      var terms = norm(q).split(/\s+/).filter(Boolean);
+      var visible = 0;
+      deckEls.forEach(function (card) {
+        var title = card.getAttribute("data-deck-title") || "";
+        var show = terms.length === 0 || terms.every(function (t) { return title.indexOf(t) >= 0; });
+        card.classList.toggle("deck-item-hidden", !show);
+        if (show) visible++;
+      });
+      var cnt = el("deckFilterCount");
+      if (cnt) {
+        cnt.classList.toggle("hidden", terms.length === 0);
+        cnt.textContent = visible + " de " + deckEls.length + " mazos";
+      }
+    }
+    if (filterInput) {
+      filterInput.addEventListener("input", function () {
+        filterClear && filterClear.classList.toggle("hidden", filterInput.value === "");
+        applyFilter(filterInput.value);
+      });
+      if (filterClear) {
+        filterClear.addEventListener("click", function () {
+          filterInput.value = ""; filterClear.classList.add("hidden");
+          applyFilter(""); filterInput.focus();
+        });
+      }
+    }
 
     el("subjNew").addEventListener("click", function () {
       CREATE_DRAFT = newDraft(); CREATE_DRAFT.subjectName = subject.name;
@@ -675,6 +729,11 @@
       }
       el("rateBar").classList.remove("hidden");
       el("revealBtn").classList.add("hidden");
+      // En movil: desplaza automaticamente a los botones de valoracion
+      setTimeout(function () {
+        var rb = el("rateBar");
+        if (rb) rb.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 80);
     }
     el("revealBtn").addEventListener("click", reveal);
     if (!mcq) {
