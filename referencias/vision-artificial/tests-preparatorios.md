@@ -23,14 +23,14 @@
 
 ## Tema 2 — Elementos de un sistema de percepción
 
-1. Un sistema de percepción necesita únicamente: **A. Un módulo de captura ✅** · B. Decisión · C. Ninguna
+1. Un sistema de percepción necesita únicamente: A. Un módulo de captura · B. Decisión · **C. Ninguna de las anteriores ✅**  *(corregido: es un pipeline, no basta un solo módulo)*
 2. Sensor que solo detecta NO₂ con error grande: **A. Especificidad muy alta, precisión muy baja ✅** · B · C
 3. Segmentar sin filtrar: **A. Mayor coste, el nº de segmentos podría ser muy alto ✅** · B · C
 4. Objetivo del preprocesamiento: A · B. Reducir información · **C. Asegurar la máxima calidad de la información que llega al procesamiento ✅**
 5. La decisión se hace siempre tras el procesado/extracción: A. Falso · **B. Verdadero ✅**
-6. Radio AM con ruido: A · B · **C. Combinar filtrado analógico + A/D + filtrado digital ✅** · D
+6. Radio AM con ruido: **A. Filtrado analógico por hardware ✅** · B · C · D  *(corregido: la radio AM es analógica, lo más adecuado es filtrar en analógico)*
 7. ⚠️ Microcalcificaciones en radiografía: **C. Filtrar (contraste) → segmentar → extraer características ✅** · A (solo extracción) · B *(nota: la opción menciona "color", pero la radiografía es en grises)*
-8. Sensor para solo contar vehículos: A · B · **C. Poco específico, solo detecta el paso, 50 € ✅**
+8. Sensor para solo contar vehículos (vía a 70 km/h): A · **B. Específico, sensible hasta 200 km/h, 200 € ✅** · C  *(corregido: el sensor de parking (C) tiene baja sensibilidad y no capta coches a 70 km/h)*
 9. Dispositivo de voz "sin ruido": A · **B. Aun sin ruido puede captar info no deseada (otra voz/entorno) → filtrar ✅** · C
 10. Sistema de percepción sin módulo de decisión: **A. Cuando la extracción de características da soporte a otro sistema ✅** · B · C
 
