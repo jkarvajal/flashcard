@@ -18,7 +18,7 @@
 6. Operación para identificar bordes (células fotosensibles): A. Suma · **B. Resta/diferencia entre intensidades cercanas ✅** · C. Producto · D. División
 7. La Ley de Weber: **A. El incremento de intensidad necesario para una respuesta similar aumenta con la intensidad ✅** · B · C · D
 8. ¿Dónde está la cóclea? A. Hueso · **B. Oído interno ✅** · C. Pabellón · D. Oído medio
-9. ⚠️ La frecuencia de una onda sonora capturada: **B. Es inversamente proporcional a la longitud de las fibras pilosas ✅** (codificación tonotópica) · A (perilinfa) · C · D
+9. La frecuencia de una onda sonora capturada: **A. Se refleja en las vibraciones del fluido interno de la cóclea (perilinfa) ✅** · B (longitud de fibras pilosas — formulación imprecisa, descartada por corrección oficial) · C · D  *(corregido con resultado oficial del campus)*
 10. ¿Qué es el tímpano? **C. Membrana del sistema auditivo cuya vibración capta intensidad y frecuencia ✅**
 
 ## Tema 2 — Elementos de un sistema de percepción
