@@ -53,7 +53,7 @@
 2. ¿Etapa específica para el ruido? **A. Sí, como etapa inicial, para preservar la información original ✅** · B · C · D
 3. Entropía en teoría de la información: A · B · C · **D. La cantidad de información, en promedio, de una fuente aleatoria ✅**
 4. X uniforme [a,b] vs Y gaussiana (varianza pequeña), ¿mayor entropía? A · B · C · **D. La variable X (la uniforme) ✅**
-5. ¿Cómo se evalúa la entropía? A · B · **C. Calculando la probabilidad asociada a cada muestra (valor) ✅** · D
+5. ¿Cómo se evalúa la entropía de una señal? A · **B. Se evalúa el ratio de entropía por la inclusión de nuevas muestras ✅** · C · D  *(corregido: es una señal/serie temporal → ratio de entropía, base de ApEn)*
 6. ¿Qué es la entropía aproximada? A · B · C · **D. Un algoritmo para estimar la entropía en una serie temporal ✅**
 7. Ruido interno/inherente: A · B · C · **D. Señales aleatorias generadas en los dispositivos por sus propiedades físicas ✅**
 8. Ruido producido por el hombre: A · B · **C. Artefactos eléctricos (automóviles, motores, alta tensión); ruido industrial ✅** · D
