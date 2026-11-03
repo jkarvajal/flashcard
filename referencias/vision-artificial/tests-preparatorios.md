@@ -197,7 +197,7 @@
 1. ¿Self-driving sin segmentación? **A. Falso ✅** · B
 2. ¿Análisis en la nube? A · B · **C. Falso: debe hacerse en el coche para tiempos de respuesta bajos ✅**
 3. Limitaciones de los sistemas autónomos: A · B · C · **D. Todas las anteriores ✅** · E
-4. Ventaja de conducción + biometría: A · B · C · **D. Todas las anteriores ✅**
+4. Ventaja de conducción + biometría: **A. Detectar/autenticar al conductor (solo autorizados) ✅** · B · C · D  *(corregido: el oficial descarta D; B es vigilancia de terceros. Entre A y C se elige A por criterio razonado)*
 5. ¿La biometría estudia patrones físicos o de comportamiento? A · **B. Verdadero ✅**
 6. ¿La huella precisa segmentación compleja? **A. Falso ✅** · B
 7. ¿El iris necesita segmentación por color para la pupila? **A. Si es solo la pupila, el color puede ser buen enfoque ✅** · B · C
