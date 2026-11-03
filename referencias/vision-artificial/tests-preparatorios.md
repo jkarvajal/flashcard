@@ -109,7 +109,7 @@
 4. ¿Separar dos voces simultáneas con la TF? **A. No: ambas tienen ~4 kHz y se solapan en frecuencia ✅** · B · C
 5. DFT a un disco de música clásica: A · **B. Picos asociados a los tonos de las notas ✅** · C
 6. Personas en un supermercado durante un año (TF): A · **B. Picos en frecuencia (horas centrales, fines de semana) ✅** · C
-7. ¿Aplicar la TF directamente sin DFT? **A. No: la TF es el concepto teórico y la DFT su implementación ✅** · B · C
+7. ¿Aplicar la TF directamente sin DFT? A · **B. Sí, para filtros analógicos ✅** · C  *(corregido: la FT continua se aplica a señales analógicas; la DFT solo para discretas)*
 8. ¿Función sin TF? A · B · **C. Si es continua, derivable y acotada (sin asíntotas) tendrá TF ✅**
 9. La transformada inversa de Fourier: A · **B. Devuelve f(t) original sin modificación ✅** · C
 10. ¿TF a funciones sinusoidales? A. Falso · **B. Verdadero (son periódicas y continuas) ✅**
