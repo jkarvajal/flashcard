@@ -160,7 +160,7 @@
 3. Interpretación del elemento (i,j): **A. Prob. de que i sea adyacente a j según dirección/distancia ✅** · B · C · D
 4. Uso de la matriz de Haralick en clasificación: A · **B. Se derivan estadísticos como descriptores ✅** · C · D
 5. Parámetros P y R en LBP: A · B · **C. P = nº de vecinos en un radio R ✅** · D
-6. ¿El LBP original es invariante a rotación? **A. No ✅** · B · C · D
+6. ¿El LBP original es invariante a rotación? A · B · **C. La definición de un orden en la cadena de bits impide esta invarianza ✅** · D  *(corregido: el oficial pide el motivo; la invarianza se logra con LBPriu2)*
 7. ¿Cómo se obtiene el LBPriu2? A · **B. Rotando circularmente el patrón hasta el valor mínimo ✅** · C · D
 8. Propiedad de las transformadas unitarias para textura: A · B · **C. Base sinusoidal → al proyectar se muestrea la imagen ✅** · D
 9. Afirmación correcta: A · B · C · **D. Relación entre el orden del polinomio de Tchebichef y la frecuencia, explotable para la textura ✅**
