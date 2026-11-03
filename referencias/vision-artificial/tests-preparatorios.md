@@ -134,11 +134,11 @@
 3. El uso de semillas es: A · **B. Un método sencillo de inicialización ✅** · C
 4. GVF en 3D siempre que: A · **B. Se defina una función de energía que considere 3 dimensiones ✅** · C
 5. Mejora de GVF frente a ACM: **A. Son más robustos a la inicialización ✅** · B · C
-6. Sobresegmentación de Watershed se elimina: **A. Procesado posterior eliminando líneas Watershed menos importantes ✅** · B · C
+6. Sobresegmentación de Watershed se elimina: A · **B. Evitando filtrados que al suavizar eliminen detalles necesarios ✅** · C  *(corregido: el oficial descarta A, así que C "todas" también cae)*
 7. Imagen 32×32 toda blanca, ¿cuántos split? A · **B. Ninguna, todos los píxeles son iguales ✅** · C
-8. Tablero de ajedrez 8×8, ¿segmentos? A · B · **C. 64 segmentos, independiente de la función de similitud ✅**
+8. Tablero de ajedrez 8×8, ¿segmentos? **A. Dependerá de la función de similitud, mínimo 1 y máximo 64 ✅** · B · C  *(corregido: con similitud laxa se funden hasta en 1; distinguiendo colores, hasta 64)*
 9. Agregación multiescala, ¿qué consume más tiempo? A · B · **C. La primera escala (más nodos) ✅** · D
-10. Algoritmo interactivo con experto humano: A · **B. Graph-cuts y crecimiento por semillas ✅** · C · D
+10. Algoritmo interactivo con experto humano: A · B · **C. Todos los métodos vistos, incluida la agregación multiescala ✅** · D  *(corregido: todos admiten intervención del experto)*
 
 ## Tema 11 — Extracción de características (estadística y frecuencia)
 
