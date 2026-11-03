@@ -122,7 +122,7 @@
 4. ¿La erosión es la inversa de la dilatación? **A. Teóricamente falso, aunque puede haber casos ✅** · B · C
 5. La apertura: **A. Primero erosión y después dilatación ✅** · B · C · D
 6. La función inversa de la erosión: A · B · C · **D. Ninguna de las anteriores ✅**
-7. Matriz 17×17 negra con el centro blanco, dilatación: **A. Dependerá del elemento estructural ✅** · B · C
+7. Matriz 17×17 negra con el centro blanco, dilatación: A · B · **C. Siempre habrá más de un píxel blanco, sea cual sea el elemento estructural ✅**  *(corregido: la dilatación reproduce la forma del EE, que siempre abarca >1 píxel)*
 8. Cielo nocturno, quedarse con las estrellas grandes: A · **B. Una apertura ✅** · C
 9. Operadores que conservan la forma: A · B · C · **D. La apertura y la clausura ✅**
 10. ¿Qué operador consume más procesamiento? A · B · **C. La apertura ✅**
